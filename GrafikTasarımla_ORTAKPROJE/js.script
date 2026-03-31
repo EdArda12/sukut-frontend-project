@@ -1,0 +1,23 @@
+// Basit "sayfada ara" davranisi (Enter ile odak/uyari)
+// Isteyen sonra gelistirir (highlight vs.)
+(() => {
+  const input = document.getElementById("pageSearch");
+  if (!input) return;
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter") return;
+    e.preventDefault();
+
+    const q = input.value.trim();
+    if (!q) return;
+
+    // Basit: sayfada metni bulmaya dener (tarayici destekliyse)
+    // Bulamazsa uyari verir.
+    const found = window.find ? window.find(q) : false;
+    if (!found) {
+      // UX: kisa bir geri bildirim
+      input.style.boxShadow = "0 0 0 4px rgba(255, 0, 0, .25)";
+      setTimeout(() => (input.style.boxShadow = ""), 450);
+    }
+  });
+})();

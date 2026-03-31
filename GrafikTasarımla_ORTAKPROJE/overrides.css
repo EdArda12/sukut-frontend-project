@@ -1,0 +1,607 @@
+/* =========================================================
+   SÜKÛT — overrides.css
+   DUYURULAR SAYFASI (duyurular.html) FINAL FIX
+   ========================================================= */
+
+/* 1) Duyurular sayfasında alt yatay şerit olmasın,
+      dikeyler mor alanın en altına kadar insin */
+body.duyurular-page .hero::after {
+    /* hero'daki genel çerçeveyi kullan ama alt çizgiyi kapat */
+    border-bottom: 0 !important;
+    top: 18px !important;
+    bottom: 0 !important;
+    /* DİKEYLER EN AŞAĞI */
+}
+
+/* 2) Hero iç alanını tasarımdaki gibi ortala */
+body.duyurular-page .hero__inner--duyurular {
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 26px 32px 36px !important;
+}
+
+/* 3) Büyük duyuru kartı (ortadaki dikdörtgen kutu) */
+body.duyurular-page .announce {
+    width: min(1120px, 92%) !important;
+    margin: 0 auto !important;
+}
+
+body.duyurular-page .announce__card {
+    background: rgba(237, 229, 243, .92) !important;
+    border-radius: 28px !important;
+    padding: 44px 52px !important;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, .18) !important;
+
+    display: grid !important;
+    grid-template-columns: 1.15fr 1fr !important;
+    gap: 40px !important;
+    align-items: center !important;
+}
+
+/* 4) Metinler: font + renk + hiyerarşi */
+body.duyurular-page .announce__text {
+    font-family: "Source Serif 4", serif !important;
+    color: #2b1445 !important;
+}
+
+body.duyurular-page .announce__title {
+    margin: 0 0 10px 0 !important;
+    font-family: "Source Serif 4", serif !important;
+    font-weight: 700 !important;
+    font-size: 56px !important;
+    line-height: 1.05 !important;
+    color: #2b1445 !important;
+    letter-spacing: .2px !important;
+}
+
+body.duyurular-page .announce__desc {
+    margin: 0 0 20px 0 !important;
+    font-family: "Source Serif 4", serif !important;
+    font-weight: 600 !important;
+    font-size: 26px !important;
+    line-height: 1.25 !important;
+    color: #2b1445 !important;
+}
+
+body.duyurular-page .announce__address {
+    margin: 0 !important;
+    font-family: "Source Serif 4", serif !important;
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+    color: #2b1445 !important;
+}
+
+/* 5) Sağdaki görsel alanı */
+body.duyurular-page .announce__media {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+body.duyurular-page .announce__media img {
+    width: 100% !important;
+    max-width: 520px !important;
+    height: auto !important;
+    display: block !important;
+    border-radius: 0 !important;
+    /* tasarımda köşe yok */
+    object-fit: contain !important;
+    box-shadow: none !important;
+}
+
+/* 6) Responsive */
+@media (max-width: 980px) {
+    body.duyurular-page .hero__inner--duyurular {
+        height: auto !important;
+        min-height: 0 !important;
+        max-height: none !important;
+    }
+
+    body.duyurular-page .announce__card {
+        grid-template-columns: 1fr !important;
+        padding: 28px 22px !important;
+        gap: 18px !important;
+    }
+
+    body.duyurular-page .announce__title {
+        font-size: 40px !important;
+    }
+
+    body.duyurular-page .announce__desc {
+        font-size: 20px !important;
+    }
+
+    body.duyurular-page .announce__address {
+        font-size: 16px !important;
+    }
+
+    body.duyurular-page .announce__media img {
+        max-width: 560px !important;
+    }
+}
+
+/* =========================
+   DUYURULAR — KUTUYU BİR TIK AŞAĞI AL
+   ========================= */
+
+body.duyurular-page .announce {
+    margin-top: 29px !important;
+}
+
+/* =========================================================
+   SÜKÛT — İLETİŞİM SAYFASI (contact-page)
+   overrides.css
+   ========================================================= */
+
+/* Bu sayfada ALT YATAY ŞERİT VAR ve iki dikeyle birleşsin */
+body.contact-page .hero::after {
+    top: 18px !important;
+    bottom: 22px !important;
+    border-left: 2px solid rgba(255, 255, 255, .9) !important;
+    border-right: 2px solid rgba(255, 255, 255, .9) !important;
+    border-bottom: 2px solid rgba(255, 255, 255, .9) !important;
+    /* ✅ yatay şerit açık */
+    border-top: 0 !important;
+}
+
+/* Hero içi yerleşim */
+body.contact-page .hero__inner--contact {
+    height: 500px !important;
+    min-height: 500px !important;
+    max-height: 500px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 22px 32px 28px !important;
+}
+
+/* Genel blok */
+body.contact-page .contact {
+    width: min(720px, 86vw);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* Üst başlık (pill) */
+body.contact-page .contact__title {
+    margin: 0;
+    width: min(660px, 86vw);
+    text-align: center;
+
+    font-family: var(--font-nav);
+    font-size: 56px;
+    font-weight: 700;
+    color: #2b1445;
+
+    background: rgba(237, 229, 243, .95);
+    border-radius: 18px;
+    padding: 12px 18px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .16);
+}
+
+/* Liste */
+body.contact-page .contact__list {
+    width: min(660px, 86vw);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Tek satır kutu */
+body.contact-page .contact__item {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 14px;
+    border-radius: 18px;
+    background: rgba(237, 229, 243, .95);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .14);
+
+    text-decoration: none;
+}
+
+/* İkon alanı (soldaki mor yuvarlak) */
+body.contact-page .contact__icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 999px;
+    background: var(--accent);
+
+    display: grid;
+    place-items: center;
+    flex: 0 0 38px;
+}
+
+body.contact-page .contact__icon img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) invert(1);
+    /* ikonlar beyaz görünsün */
+}
+
+/* Metin */
+body.contact-page .contact__text {
+    font-family: var(--font-nav);
+    font-size: 20px;
+    color: #2b1445;
+    letter-spacing: .1px;
+    font-variation-settings: "opsz" 36;
+}
+
+/* Address satırı link değil, hover yok */
+body.contact-page .contact__item--address {
+    cursor: default;
+}
+
+/* Hover (linklerde) */
+body.contact-page a.contact__item:hover {
+    transform: translateY(-1px);
+    transition: transform .18s ease;
+}
+
+/* Responsive */
+@media (max-width: 760px) {
+    body.contact-page .contact__title {
+        font-size: 42px;
+    }
+
+    body.contact-page .contact__text {
+        font-size: 18px;
+    }
+}
+
+/* =========================================================
+   CONTACT PAGE — FIX: taşma yok + ikonlar görünsün
+   overrides.css EN ALTINA
+   ========================================================= */
+
+/* 1) Sabit 500px yüksekliği KALDIR (taşmayı bitir) */
+body.contact-page .hero__inner--contact {
+    height: auto !important;
+    min-height: 500px !important;
+    /* diğer sayfalarla aynı his */
+    max-height: none !important;
+    padding: 18px 32px 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* 2) Orta bloğu “fit” et: gerekirse biraz küçült ve ortala */
+body.contact-page .contact {
+    transform: scale(.90) !important;
+    /* taşmayı bitiren ana hamle */
+    transform-origin: center center !important;
+    margin-top: 6px !important;
+    /* çok az aşağı al */
+}
+
+/* 3) Başlık pill çok büyüktü -> küçült */
+body.contact-page .contact__title {
+    font-size: 46px !important;
+    padding: 10px 16px !important;
+}
+
+/* 4) Satırları biraz incelt -> toplam yükseklik düşsün */
+body.contact-page .contact__list {
+    gap: 8px !important;
+}
+
+body.contact-page .contact__item {
+    padding: 8px 12px !important;
+    border-radius: 16px !important;
+}
+
+/* 5) İkon kutusu biraz küçülsün */
+body.contact-page .contact__icon {
+    width: 34px !important;
+    height: 34px !important;
+    flex: 0 0 34px !important;
+}
+
+/* 6) İKONLAR GELMİYOR PROBLEMİ:
+      Beyaz çevirme filtresini KAPAT -> facebook/youtube/x görünsün */
+body.contact-page .contact__icon img {
+    width: 18px !important;
+    height: 18px !important;
+    filter: none !important;
+    /* ✅ kritik */
+    opacity: 1 !important;
+}
+
+/* 7) Yazılar biraz küçülsün */
+body.contact-page .contact__text {
+    font-size: 18px !important;
+}
+
+/* 8) Çok küçük ekranlarda daha da küçült */
+@media (max-width: 900px) {
+    body.contact-page .contact {
+        transform: scale(.86) !important;
+    }
+}
+
+@media (max-width: 560px) {
+    body.contact-page .contact {
+        transform: scale(.82) !important;
+    }
+}
+
+/* ===============================
+   İLETİŞİM — İKONLAR: MOR ÇEMBERİ KALDIR + BÜYÜT
+   overrides.css EN ALT
+   =============================== */
+
+/* İkonun geldiği sol "badge/daire" neyse onu sıfırla */
+.contact-page .c-row__icon,
+.iletisim-page .c-row__icon,
+.contact .row__icon,
+.contact-row__icon,
+.contact-icon,
+.icon-badge,
+.icon-wrap,
+.icon-circle {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+/* Eğer ikonlar IMG ise: direkt büyüt + ortala */
+.contact-page .c-row__icon img,
+.iletisim-page .c-row__icon img,
+.contact .row__icon img,
+.contact-row__icon img,
+.contact-icon img {
+    width: 30px !important;
+    height: 30px !important;
+    object-fit: contain !important;
+    display: block !important;
+    filter: none !important;
+}
+
+/* Eğer ikonlar FONT/Awesome gibi i/svg ise: büyüt */
+.contact-page .c-row__icon i,
+.iletisim-page .c-row__icon i,
+.contact .row__icon i,
+.contact-row__icon i,
+.contact-icon i,
+.contact-page .c-row__icon svg,
+.iletisim-page .c-row__icon svg,
+.contact .row__icon svg,
+.contact-row__icon svg,
+.contact-icon svg {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 30px !important;
+    fill: currentColor !important;
+}
+
+/* İkonun kutu içindeki hizası (direkt kutuya otursun) */
+.contact-page .c-row__icon,
+.iletisim-page .c-row__icon,
+.contact .row__icon,
+.contact-row__icon,
+.contact-icon {
+    width: 40px !important;
+    min-width: 40px !important;
+    height: 40px !important;
+    display: grid !important;
+    place-items: center !important;
+    margin-left: 10px !important;
+    /* kutudan çok yapışık durmasın */
+}
+
+/* Yazı ile ikon arası mesafe */
+.contact-page .c-row__text,
+.iletisim-page .c-row__text,
+.contact .row__text,
+.contact-row__text {
+    padding-left: 10px !important;
+}
+
+/* ===============================
+   İLETİŞİM — MOR ÇEMBERİ %100 KALDIR (CLASS BİLMEDEN)
+   + İKONLARI BÜYÜT
+   overrides.css EN ALT
+   =============================== */
+
+/* 1) İkonun etrafındaki mor çemberi yapan wrapper'ı yakala ve SIFIRLA */
+.frame *:has(> img[src*="facebook.png"]),
+.frame *:has(> img[src*="youtube.png"]),
+.frame *:has(> img[src*="instagram.png"]),
+.frame *:has(> img[src*="x.png"]),
+.frame *:has(> img[src*="gmail.png"]),
+.frame *:has(> img[src*="location.png"]) {
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    outline: 0 !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+}
+
+/* 2) Eğer çember pseudo-element ile geliyorsa (çok oluyor) onu da öldür */
+.frame *:has(> img[src*="facebook.png"])::before,
+.frame *:has(> img[src*="youtube.png"])::before,
+.frame *:has(> img[src*="instagram.png"])::before,
+.frame *:has(> img[src*="x.png"])::before,
+.frame *:has(> img[src*="gmail.png"])::before,
+.frame *:has(> img[src*="location.png"])::before,
+.frame *:has(> img[src*="facebook.png"])::after,
+.frame *:has(> img[src*="youtube.png"])::after,
+.frame *:has(> img[src*="instagram.png"])::after,
+.frame *:has(> img[src*="x.png"])::after,
+.frame *:has(> img[src*="gmail.png"])::after,
+.frame *:has(> img[src*="location.png"])::after {
+    content: none !important;
+    display: none !important;
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* 3) İkonları büyüt + net görünür yap */
+img[src*="facebook.png"],
+img[src*="youtube.png"],
+img[src*="instagram.png"],
+img[src*="x.png"],
+img[src*="gmail.png"],
+img[src*="location.png"] {
+    width: 34px !important;
+    height: 34px !important;
+    object-fit: contain !important;
+    display: block !important;
+
+    /* mor ikonlar açık zeminde daha net olsun (gerekirse kapatırız) */
+    filter: contrast(1.15) saturate(1.2) !important;
+}
+
+/* 4) İkonun durduğu sol alanı da sabitle (taşma/ortalamayı düzeltir) */
+.frame *:has(> img[src*="facebook.png"]),
+.frame *:has(> img[src*="youtube.png"]),
+.frame *:has(> img[src*="instagram.png"]),
+.frame *:has(> img[src*="x.png"]),
+.frame *:has(> img[src*="gmail.png"]),
+.frame *:has(> img[src*="location.png"]) {
+    width: 44px !important;
+    min-width: 44px !important;
+    height: 44px !important;
+    display: grid !important;
+    place-items: center !important;
+}
+
+/* =========================================================
+   İLETİŞİM — SADECE ORTADAKİ KUTULARDAKİ İKONLARI BÜYÜT
+   (footer/bottombar social ikonları değişmez)
+   overrides.css EN ALTINA
+   ========================================================= */
+
+/* Hero içindeki iletişim ikonları (dosya adına göre kesin hedef) */
+.frame .hero img[src$="facebook.png"],
+.frame .hero img[src$="youtube.png"],
+.frame .hero img[src$="instagram.png"],
+.frame .hero img[src$="x.png"],
+.frame .hero img[src$="gmail.png"],
+.frame .hero img[src$="location.png"] {
+    width: 34px !important;
+    height: 34px !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Eğer ikonun içinde durduğu sol alan küçükse onu da büyüt (genel güvenli) */
+.frame .hero a:has(img[src$="facebook.png"]),
+.frame .hero a:has(img[src$="youtube.png"]),
+.frame .hero a:has(img[src$="instagram.png"]),
+.frame .hero a:has(img[src$="x.png"]),
+.frame .hero a:has(img[src$="gmail.png"]),
+.frame .hero a:has(img[src$="location.png"]) {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+}
+
+/* İkonun sol tarafta “minik” kalmasını engelle (flex item fix) */
+.frame .hero img[src$="facebook.png"],
+.frame .hero img[src$="youtube.png"],
+.frame .hero img[src$="instagram.png"],
+.frame .hero img[src$="x.png"],
+.frame .hero img[src$="gmail.png"],
+.frame .hero img[src$="location.png"] {
+    flex: 0 0 34px !important;
+}
+
+/* ✅ Footer sol alttaki sosyal ikonlar SABİT kalsın */
+.bottombar .social__btn img {
+    width: 24px !important;
+    height: 24px !important;
+    max-width: 24px !important;
+    max-height: 24px !important;
+}
+
+/* =========================================================
+   İLETİŞİM — OPTİK İKON BÜYÜTME (SADECE HERO İÇİ)
+   youtube / instagram / x / facebook
+   ========================================================= */
+/* Facebook */
+.frame .hero img[src$="facebook.png"] {
+    transform: scale(1.25);
+    transform-origin: center;
+}
+
+
+/* YouTube */
+.frame .hero img[src$="youtube.png"] {
+    transform: scale(1.35);
+    transform-origin: center;
+}
+
+/* Instagram */
+.frame .hero img[src$="instagram.png"] {
+    transform: scale(2.60);
+    transform-origin: center;
+}
+
+/* X */
+.frame .hero img[src$="x.png"] {
+    transform: scale(2.60);
+    transf
+    /* =========================================================
+   FULL SCREEN FIT — SÜKÛT (KESİN ÇÖZÜM)
+   Tasarımı ekranın 4 kenarına da orantılı şekilde yayar
+   Boşluk BIRAKMAZ
+   ========================================================= */
+
+    /* Tarayıcı boşluklarını sıfırla */
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    /* Taşan gri alanı gizle */
+    body {
+        overflow: hidden;
+    }
+
+    /* Ekranı tamamen kaplayan sahne */
+    .fit-stage {
+        position: fixed;
+        inset: 0;
+        overflow: hidden;
+    }
+
+    /* Tasarımın referans boyutu */
+    .fit-design {
+        width: 1200px;
+        height: 675px;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform-origin: center;
+
+        /* EKRANI DOLDUR (boşluk bırakmaz) */
+        transform:
+            translate(-50%, -50%) scale(max(100vw / 1200,
+                    100vh / 675));
+    }
+
+    html {
+        outline: 12px solid lime !important;
+    }

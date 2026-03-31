@@ -1,0 +1,2030 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+    --panel: #ede5f3;
+    --accent: #4e217b;
+    --hero-left: #030012;
+    --hero-mid: #27004e;
+    --hero-right: #030f2e;
+    --text-dark: #2b1445;
+    --radius-xl: 18px;
+    --radius-pill: 999px;
+    --shadow: 0 10px 35px rgba(0, 0, 0, .18);
+    --font-nav: "Source Serif 4", serif;
+    --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    --topbar-h: 74px;
+    --bottombar-h: 34px;
+    /* brand yazisi rengi */
+    --brand-purple: #32005b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-body);
+    background: #616161;
+    color: var(--text-dark);
+}
+
+.page {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 42px;
+}
+
+.frame {
+    width: min(1240px, 100%);
+    background: var(--panel);
+    border: 1px solid #cfcbd8;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+/* ========================= TOPBAR (GRID FIX) ========================= */
+.topbar {
+    height: var(--topbar-h);
+    padding: 12px 18px;
+    background: var(--panel);
+    border-bottom: 2px solid #141414;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+    position: relative;
+    z-index: 10;
+    /* ✅ logo büyüyünce nav kaymasin diye */
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 18px;
+}
+
+/* brand: logo + Sükût */
+.brand {
+    display: inline-flex;
+    align-items: center;
+    /* ✅ yaziyi logoya yaklastir */
+    gap: 8px;
+    text-decoration: none;
+    flex: 0 0 auto;
+    /* ✅ logo büyüse bile nav'i itmesin */
+    min-width: 200px;
+}
+
+.brand-logo {
+    /* ✅ koyulogo biraz daha buyuk */
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    display: block;
+}
+
+/* ✅ USTTEKI SUKÛT YAZISI */
+.brand-text {
+    font-family: "Elephant", "Georgia", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--brand-purple);
+    font-size: 44px;
+    line-height: 1;
+    letter-spacing: .2px;
+    /* ✅ yaziyi logoya daha da yaklastir */
+    margin-left: -4px;
+}
+
+/* NAV */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    /* grid icinde ortala */
+    justify-content: center;
+    /* ✅ tasma sorunlarini bitiren ana sey */
+    min-width: 0;
+}
+
+.nav__link {
+    font-family: var(--font-nav);
+    font-size: 20px;
+    letter-spacing: .1px;
+    color: var(--accent);
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 14px;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+    font-variation-settings: "opsz" 40;
+    white-space: nowrap;
+}
+
+.nav__link:hover {
+    background: rgba(78, 33, 123, .10);
+    transform: translateY(-1px);
+}
+
+.nav__link.is-active {
+    color: #fff;
+    background: var(--accent);
+}
+
+/* RIGHT BUTTON */
+.btn {
+    font-family: var(--font-nav);
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    background: var(--accent);
+    padding: 12px 18px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background: #5a2a8f;
+}
+
+/* ========================= HERO (MOR ALAN) ========================= */
+.hero {
+    position: relative;
+    padding: 0;
+    background: radial-gradient(900px 420px at 50% 60%, rgba(90, 0, 170, .55), rgba(0, 0, 0, 0) 60%), linear-gradient(90deg, var(--hero-left) 0%, var(--hero-mid) 50%, var(--hero-right) 100%);
+    border-left: 2px solid #151515;
+    border-right: 2px solid #151515;
+    /* ustte minicik bosluklari kapatmak icin */
+    margin-top: -20px;
+    margin-left: -2px;
+    margin-right: -2px;
+    width: calc(100% + 4px);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    overflow: hidden;
+    background-clip: border-box;
+}
+
+.hero__inner {
+    height: 500px;
+    /* ✅ biraz daha toparladim (520 uzundu) */
+    max-height: 500px;
+    min-height: 500px;
+    position: relative;
+    padding: 26px 32px 36px;
+    border-radius: 0;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* ✅ MOR ALANDAKI BUYUK SUKÛT + LOGO */
+.hero-brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* ✅ yazı-logo biraz daha yakin */
+    gap: 18px;
+    margin-top: 26px;
+    margin-bottom: 22px;
+}
+
+.hero-title {
+    font-family: "Elephant", "Georgia", serif;
+    font-style: italic;
+    font-weight: 400;
+    color: #ffffff;
+    font-size: 136px;
+    letter-spacing: 1px;
+    margin: 0;
+    line-height: 1;
+}
+
+/* ✅ ana logo biraz daha buyuk + yazıya yakin */
+.hero-mark {
+    width: 170px;
+    height: auto;
+    display: block;
+    margin-left: -4px;
+    filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .35));
+}
+
+/* SEARCH */
+.search {
+    width: min(860px, 92%);
+    margin: 0 auto;
+    position: relative;
+    height: 56px;
+}
+
+.search__icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    opacity: .95;
+}
+
+.search__input {
+    width: 100%;
+    height: 100%;
+    padding: 0 20px 0 58px;
+    border-radius: var(--radius-pill);
+    border: 2px solid rgba(255, 255, 255, .16);
+    outline: none;
+    background: rgba(107, 98, 129, .82);
+    color: #fff;
+    font-size: 20px;
+    font-family: var(--font-nav);
+    letter-spacing: .2px;
+    font-variation-settings: "opsz" 36;
+}
+
+.search__input::placeholder {
+    color: rgba(255, 255, 255, .92);
+}
+
+/* ========================= HERO BEYAZ SERITLER - ust yok - sag/sol dikey + alt var - mor alan baslangicinda baslasin ========================= */
+.hero::after {
+    content: "";
+    position: absolute;
+    /* ✅ çizgiler mor alanin basladigi yerden baslasin */
+    top: 18px;
+    /* ✅ altta da dursun */
+    bottom: 22px;
+    left: 22px;
+    right: 22px;
+    border-left: 2px solid rgba(255, 255, 255, .9);
+    border-right: 2px solid rgba(255, 255, 255, .9);
+    border-bottom: 2px solid rgba(255, 255, 255, .9);
+    border-top: 0;
+    border-radius: 0;
+    pointer-events: none;
+    z-index: 20;
+}
+
+/* ========================= BOTTOM BAR ========================= */
+.bottombar {
+    height: var(--bottombar-h);
+    background: var(--panel);
+    border-top: 2px solid #151515;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.social__btn {
+    width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.copy {
+    font-size: 12px;
+    color: var(--accent);
+    font-family: var(--font-nav);
+    font-variation-settings: "opsz" 24;
+}
+
+/* ========================= RESPONSIVE ========================= */
+@media (max-width: 980px) {
+    .nav {
+        gap: 8px;
+    }
+
+    .nav__link {
+        font-size: 16px;
+        padding: 8px 10px;
+    }
+
+    .brand-logo {
+        width: 62px;
+        height: 62px;
+    }
+
+    .brand-text {
+        font-size: 36px;
+    }
+
+    .hero-title {
+        font-size: 110px;
+    }
+
+    .hero-mark {
+        width: 150px;
+    }
+}
+
+@media (max-width: 760px) {
+    .topbar {
+        height: auto;
+        row-gap: 10px;
+        padding: 12px 14px;
+        /* mobilde grid'i daha rahat yap */
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    .nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .page {
+        padding: 18px;
+    }
+
+    .hero__inner {
+        height: 420px;
+        min-height: 420px;
+    }
+
+    .hero-title {
+        font-size: 86px;
+    }
+
+    .hero-mark {
+        width: 120px;
+    }
+}
+
+/* ========================= TOPBAR ALIGN + LOGO SCALE (OVERRIDE) style.css EN ALTINA EKLE ========================= */
+.topbar {
+    /* sabit yükseklikte iç hizalama düzgün olsun */
+    height: var(--topbar-h);
+    padding: 0 18px !important;
+    align-items: center !important;
+}
+
+/* sol marka alanı (logo + Sukût) */
+.brand {
+    height: calc(var(--topbar-h) - 10px);
+    align-items: center !important;
+    gap: 14px !important;
+}
+
+/* ✅ logo büyüsün ama layout bozmasın */
+.brand-logo {
+    height: calc(var(--topbar-h) - 12px) !important;
+    /* ~62px -> daha dolu görünür */
+    width: auto !important;
+    max-width: 110px;
+    object-fit: contain !important;
+    display: block;
+}
+
+/* Sukût yazısını da tam ortala */
+.brand-text {
+    display: flex;
+    align-items: center;
+    line-height: 1 !important;
+    transform: translateY(-1px);
+    /* optik merkez */
+}
+
+/* menü linkleri gri alanın ortasında dursun */
+.nav {
+    height: 100%;
+    align-items: center !important;
+}
+
+/* linkleri dikey ortalamak için: yüksekliği sabitle, padding’i yataya çek */
+.nav__link {
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    /* gri bandın ortasına oturur */
+    padding: 0 14px !important;
+    line-height: 1 !important;
+    transform: translateY(-1px);
+    /* optik merkez */
+}
+
+/* aktif buton da aynı yükseklikte dursun */
+.nav__link.is-active {
+    height: 44px;
+}
+
+/* sağdaki "Oturum Aç" da ortalansın */
+.btn {
+    align-self: center;
+    transform: translateY(-1px);
+}
+
+/* ========================= TOPBAR FIX: Logo büyüse bile menü ortadan kaymasın ========================= */
+.topbar {
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    /* sol ve sağ eşit -> nav tam ortada */
+    align-items: center !important;
+    column-gap: 18px !important;
+}
+
+/* sol marka alanı solda kalsın */
+.brand {
+    justify-self: start !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    /* logo-yazı yakın */
+    max-width: 420px !important;
+    /* taşmayı kontrol eder */
+}
+
+/* nav TAM ORTADA kalsın */
+.nav {
+    justify-self: center !important;
+}
+
+/* buton sağda kalsın */
+.btn {
+    justify-self: end !important;
+}
+
+/* ========================= Logo gerçekten büyüsün (koyulogo.png) ========================= */
+.brand-logo {
+    height: 66px !important;
+    /* büyüklük */
+    width: 66px !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    flex: 0 0 auto !important;
+}
+
+/* Sükût yazısı logoya yaklaşsın */
+.brand-text {
+    margin-left: -6px !important;
+    /* yazıyı logoya çek */
+    line-height: 1 !important;
+}
+
+/* ========================= TOPBAR DENGELI FLEX FIX ========================= */
+.topbar {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* SOL: logo + sükût */
+.brand {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    /* logo-yazi yakin */
+    flex-shrink: 0 !important;
+    /* logo buyuse bile baska seyi itmesin */
+}
+
+/* LOGO BUYUT */
+.brand-logo {
+    width: 72px !important;
+    height: 72px !important;
+    object-fit: contain !important;
+}
+
+/* Sükût yazisini logoya cek */
+.brand-text {
+    margin-left: -6px !important;
+    font-size: 36px !important;
+    line-height: 1 !important;
+}
+
+/* ORTA: NAV SABIT */
+.nav {
+    margin: 0 auto !important;
+    /* GERCEK ORTA */
+    display: flex !important;
+    justify-content: center !important;
+    gap: 18px !important;
+}
+
+/* SAG: Oturum Ac */
+.btn {
+    flex-shrink: 0 !important;
+}
+
+/* ========================= SOCIAL ICONS (PNG) ========================= */
+.social__btn {
+    width: 18px;
+    height: 18px;
+}
+
+.social__btn img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+}
+
+/* ========================= SOSYAL MEDYA LOGO FIX Tüm ikonlar eşit boyut ========================= */
+.social {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social__btn {
+    width: 26px;
+    /* Facebook referans alındı */
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social__btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* kırpma yok */
+    display: block;
+}
+
+/* ========================= SOSYAL LOGO OPTİK EŞİTLEME ========================= */
+.social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.social__btn {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social__btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* 🔧 OPTİK DÜZELTME */
+/* Facebook fazla dolu olduğu için küçült */
+.social__btn img[src*="facebook"] {
+    transform: scale(0.88);
+}
+
+/* Diğerlerini hafif büyüt */
+.social__btn img[src*="youtube"],
+.social__btn img[src*="instagram"],
+.social__btn img[src*="x"] {
+    transform: scale(1.05);
+}
+
+/* ========================= SOSYAL LOGO FINAL FIX ========================= */
+.social {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    /* ikonlar arasi bosluk */
+}
+
+.social__btn {
+    width: 34px;
+    /* HER IKON ICIN AYNI KUTU */
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* tum ikonlar icin ortak */
+.social__btn img {
+    display: block;
+    max-width: 22px;
+    /* ASIL optik esitlik burada */
+    max-height: 22px;
+    object-fit: contain;
+}
+
+/* facebook ic dolgusu fazla -> biraz kucult */
+.social__btn img[src*="facebook"] {
+    max-width: 20px;
+    max-height: 20px;
+}
+
+/* youtube biraz yayvan -> cok az buyut */
+.social__btn img[src*="youtube"] {
+    max-width: 23px;
+    max-height: 23px;
+}
+
+/* instagram ve x normal */
+.social__btn img[src*="instagram"],
+.social__btn img[src*="x"] {
+    max-width: 22px;
+    max-height: 22px;
+}
+
+/* =============================== SOSYAL MEDYA IKON FIX (FINAL) =============================== */
+.social {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    /* ikonlar arasi mesafe */
+}
+
+.social__btn {
+    width: 34px;
+    /* hepsi icin AYNI alan */
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ikon PNG'leri */
+.social__btn img {
+    width: 28px;
+    /* GORUNEN ikon boyu */
+    height: 28px;
+    object-fit: contain;
+    /* canvas farklarini yok eder */
+    display: block;
+}
+
+/* =============================== SOSYAL ICONLAR — FINAL FIX (bosluk + hizalama + instagram/x buyutme) =============================== */
+.bottombar .social {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    /* >>> birbirine YAKIN */
+}
+
+.bottombar .social__btn {
+    width: 30px !important;
+    /* sabit tıklama alanı */
+    height: 30px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 0 !important;
+    /* baseline kaymasını bitirir */
+}
+
+.bottombar .social__btn img {
+    width: 24px !important;
+    /* görünen ikon boyu */
+    height: 24px !important;
+    display: block !important;
+    object-fit: contain !important;
+}
+
+/* Instagram ve X PNG'leri canvas yüzünden küçük görünüyor: gözle eşitle */
+.bottombar .social__btn:nth-child(3) img {
+    transform: scale(1.18);
+    transform-origin: center;
+}
+
+.bottombar .social__btn:nth-child(4) img {
+    transform: scale(1.18);
+    transform-origin: center;
+}
+
+/* =============================== SOSYAL ICONLAR — KESİN ÇÖZÜM =============================== */
+.bottombar .social {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+    /* HERKES AYNI MESAFE */
+}
+
+/* Her ikon AYNI kutuyu kaplasın */
+.bottombar .social__btn {
+    width: 32px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Görseli kutunun TAM ORTASINA kilitle */
+.bottombar .social__btn img {
+    max-width: 24px !important;
+    max-height: 24px !important;
+    width: auto !important;
+    height: auto !important;
+    display: block !important;
+}
+
+/* Canvas’i büyük olanlar GÖZLE eşitlensin */
+.bottombar .social__btn:nth-child(2) img {
+    transform: scale(1.12);
+}
+
+/* YouTube */
+.bottombar .social__btn:nth-child(3) img {
+    transform: scale(1.18);
+}
+
+/* Instagram */
+.bottombar .social__btn:nth-child(4) img {
+    transform: scale(1.18);
+}
+
+/* X */
+/* =============================== SOSYAL IKONLAR — OPTIK ESITLEME =============================== */
+.bottombar .social {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    /* BİRBİRLERİNE YAKIN */
+}
+
+/* Tüm ikonlar AYNI KUTU */
+.bottombar .social__btn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ortak temel boy */
+.bottombar .social__btn img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    display: block;
+}
+
+/* OPTIK TELAFI (ÖZEL) */
+.bottombar .social__btn:nth-child(3) img {
+    transform: scale(1.45);
+    /* Instagram */
+}
+
+.bottombar .social__btn:nth-child(4) img {
+    transform: scale(1.45);
+    /* X */
+}
+
+/* =============================== SOL UST KOYULOGO — FORCE SCALE =============================== */
+.topbar .brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    /* logo + Sükût yakınlaşır */
+}
+
+/* logo kapsayıcısını sabitle */
+.topbar .brand-logo {
+    width: 48px !important;
+    height: 48px !important;
+    flex: 0 0 48px;
+    /* nav'i itmez */
+    object-fit: contain;
+}
+
+/* PNG CANVAS OPTIK BUYUTME */
+.topbar .brand-logo {
+    transform: scale(1.6);
+    /* ASIL BUYUTME BURADA */
+    transform-origin: left center;
+}
+
+/* ========================================================= LOGO SCALE — SADECE LOGOLAR BUYUR YAZILAR KILITLI ========================================================= */
+/* SOL ÜST: koyulogo.png */
+.topbar .brand-logo {
+    transform: scale(1.55);
+    transform-origin: left center;
+}
+
+/* HERO: analogo.png */
+.hero-mark {
+    transform: scale(1.35);
+    transform-origin: center center;
+}
+
+/* =============================== KOYULOGO.PNG — KESIN BUYUTME =============================== */
+.topbar .brand-logo {
+    width: 120px !important;
+    height: 120px !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: contain !important;
+    flex: 0 0 auto !important;
+}
+
+/* ========================================= LOGO BUYUDU → YAZILARI SABITLE (OFFSET) ========================================= */
+/* logo buyudu, brand sola telafi edilir */
+.topbar .brand {
+    margin-left: -23px;
+}
+
+/* =============================== SADECE "Sükût" YAZISI SOLA =============================== */
+.topbar .brand-text {
+    transform: translateX(-38px);
+}
+
+/* ========================================= FOOTER IKONLAR — KESIN YAKLASTIRMA ========================================= */
+/* Hepsi ayni hizada */
+.bottombar .social {
+    display: flex !important;
+    align-items: center !important;
+}
+
+/* Ortak temel */
+.bottombar .social__btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Facebook referans — OYNAMAZ */
+.bottombar .social__btn:nth-child(1) {
+    margin-right: 0 !important;
+}
+
+/* YouTube sola gelsin */
+.bottombar .social__btn:nth-child(2) {
+    margin-left: -6px !important;
+}
+
+/* Instagram biraz daha sola */
+.bottombar .social__btn:nth-child(3) {
+    margin-left: -8px !important;
+}
+
+/* X biraz daha sola */
+.bottombar .social__btn:nth-child(4) {
+    margin-left: -11px !important;
+}
+
+/* =========================
+   HAKKIMIZDA KUTUSU
+   ========================= */
+.about-card {
+    width: min(1080px, 92%);
+    margin: 55px auto 0;
+    background: #dcdbe2;
+    border-radius: 28px;
+    padding: 46px 54px;
+}
+
+.about-title {
+    font-family: var(--font-nav);
+    font-size: 54px;
+    color: #2b1445;
+    margin: 0 0 8px;
+    font-weight: 700;
+}
+
+.about-subtitle {
+    font-family: var(--font-nav);
+    font-size: 28px;
+    color: #2b1445;
+    margin: 0 0 20px;
+    font-weight: 700;
+}
+
+.about-card p {
+    font-family: var(--font-nav);
+    font-size: 18px;
+    line-height: 1.55;
+    color: #2b1445;
+    margin: 0 0 14px;
+}
+
+/* =========================
+   HAKKIMIZDA — DİKEY SIĞDIRMA FIX
+   ========================= */
+
+.about-card {
+    padding-top: 36px;
+    /* üstten yukarı çek */
+    padding-bottom: 36px;
+}
+
+.about-title {
+    margin-bottom: 6px;
+    /* Hakkımızda → Biz Kimiz yaklaşır */
+}
+
+.about-subtitle {
+    margin-bottom: 14px;
+}
+
+.about-card p {
+    margin-bottom: 10px;
+    /* paragraflar sıklaşır */
+}
+
+/* =========================
+   HAKKIMIZDA — ZORLA YUKARI AL (KESIN)
+   ========================= */
+
+.hero .hero__inner .about-card {
+    padding-top: 22px !important;
+    padding-bottom: 26px !important;
+    margin-top: 30px !important;
+    /* kutuyu da yukarı alır */
+}
+
+.hero .hero__inner .about-card .about-title {
+    margin: 0 0 4px 0 !important;
+    line-height: 1.05 !important;
+}
+
+.hero .hero__inner .about-card .about-subtitle {
+    margin: 0 0 10px 0 !important;
+    line-height: 1.1 !important;
+}
+
+.hero .hero__inner .about-card p {
+    margin: 0 0 8px 0 !important;
+    line-height: 1.45 !important;
+}
+
+/* ===============================
+   HAKKIMIZDA — KUTU ORTALA + ALT ŞERİTİ KALDIR
+   =============================== */
+
+/* Kutu + yazılar biraz yukarı gelsin, mor alanlar dengelensin */
+.hero--about .hero__inner {
+    display: flex !important;
+    align-items: center !important;
+    /* dikey ortala */
+    justify-content: center !important;
+    /* yatay ortala */
+    padding-top: 18px !important;
+    /* biraz yukarı taşı */
+    padding-bottom: 18px !important;
+}
+
+/* margin-top ile aşağı itme varsa sıfırla */
+.hero--about .about-card {
+    margin-top: 0 !important;
+}
+
+/* Hakkımızda sayfasında ALT yatay beyaz şerit olmasın */
+.hero--about::after {
+    border-bottom: 0 !important;
+}
+
+/* ===============================
+   HAKKIMIZDA — DIKEY SERITLER TAM BOY
+   =============================== */
+
+.hero--about::after {
+    top: 1 !important;
+    bottom: 0 !important;
+    border-bottom: 0 !important;
+    /* alt yatay yine yok */
+}
+
+/* ===============================
+   HAKKIMIZDA — BOSLUKLARI ESITLE (KUTU YUKARI)
+   =============================== */
+
+.hero--about .about-card {
+    transform: translateY(-5px) !important;
+    /* - yukarı, + aşağı */
+}
+
+/* ===============================
+   HAKKIMIZDA — KUTU VE YAZILARI ORANTILI KÜÇÜLT
+   =============================== */
+
+.hero--about .about-card {
+    padding: 34px 42px !important;
+    /* kutu küçülür (üst-alt / sağ-sol) */
+    max-width: 86% !important;
+    /* yanlardan morluk artsın */
+}
+
+/* Başlıklar biraz küçülsün */
+.hero--about .about-title {
+    font-size: 48px !important;
+}
+
+.hero--about .about-subtitle {
+    font-size: 22px !important;
+}
+
+/* Paragraflar orantılı küçülsün */
+.hero--about .about-card p {
+    font-size: 16.5px !important;
+    line-height: 1.55 !important;
+}
+
+/* =========================================================
+   İÇERİĞİMİZ (icerigimiz.html) — 3 KART + YATAY ŞERİT YOK
+   ========================================================= */
+
+/* İçeriğimiz sayfasında alttaki yatay beyaz şerit olmasın (dikeyler kalsın) */
+.hero.hero--content::after {
+    border-bottom: 0 !important;
+}
+
+/* Kart alanı */
+.hero--content .content-cards {
+    width: min(1120px, 92%);
+    margin: 88px auto 0;
+    /* tasarımdaki gibi üstte boşluk */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 34px;
+}
+
+/* Kartlar */
+.hero--content .content-card {
+    background: rgba(237, 229, 243, 0.95);
+    /* panel tonuna yakın */
+    border-radius: 28px;
+    padding: 34px 30px;
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .18);
+}
+
+.hero--content .content-card__title {
+    font-family: var(--font-nav);
+    color: var(--accent);
+    font-size: 30px;
+    font-variation-settings: "opsz" 42;
+    margin: 0 0 16px;
+    text-align: center;
+}
+
+.hero--content .content-card__text {
+    font-family: var(--font-nav);
+    color: #2b1445;
+    font-size: 18px;
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+    .hero--content .content-cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 56px;
+    }
+}
+
+.hero.hero--content::after {
+    bottom: 0 !important;
+}
+
+/* =========================================================
+   ÜRÜNLERİMİZ — SADECE BU SAYFA
+   (diğer sayfaları etkilemez)
+   ========================================================= */
+
+.products-page .hero::after {
+    /* Ürünlerimiz sayfasında YATAY ALT ŞERİT YOK */
+    border-bottom: 0 !important;
+}
+
+/* ürünler iç alan yüksekliği */
+.products-page .hero__inner--products {
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 3 üst + 2 alt düzen */
+.products-page .products__grid {
+    width: min(1100px, 92%);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+    align-items: start;
+}
+
+/* 2. satır ortalı (2 kart) */
+.products-page .p-card:nth-child(4) {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    width: min(560px, 100%);
+}
+
+.products-page .p-card:nth-child(5) {
+    grid-column: 2 / span 2;
+    justify-self: center;
+    width: min(560px, 100%);
+}
+
+/* kartlar */
+.products-page .p-card {
+    background: rgba(237, 229, 243, .95);
+    border-radius: 22px;
+    padding: 18px 18px 22px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+    text-align: center;
+}
+
+/* başlık */
+.products-page .p-card__title {
+    margin: 4px 0 14px;
+    font-family: var(--font-nav);
+    color: var(--accent);
+    font-size: 22px;
+    font-weight: 600;
+    font-variation-settings: "opsz" 36;
+}
+
+/* resim alanı */
+.products-page .p-card__media {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.products-page .p-card__media img {
+    width: 210px;
+    height: 150px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .65);
+    padding: 10px;
+}
+
+/* responsive */
+@media (max-width: 980px) {
+    .products-page .products__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products-page .p-card:nth-child(4),
+    .products-page .p-card:nth-child(5) {
+        grid-column: auto;
+        width: 100%;
+    }
+}
+
+/* =========================================================
+   ÜRÜNLERİMİZ — GRID DÜZELTME (3 üst + 2 alt ortalı)
+   ========================================================= */
+
+/* Ürünlerimiz sayfasında alt yatay şerit olmasın */
+.products-page .hero::after {
+    border-bottom: 0 !important;
+}
+
+/* Hero içini sabitleme: taşmayı azaltmak için padding ile ortala */
+.products-page .hero__inner--products {
+    height: 500px;
+    min-height: 500px;
+    max-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 28px;
+}
+
+/* 12 kolon grid: 3 kart üstte, 2 kart altta ortalı */
+.products-page .products__grid {
+    width: min(1120px, 92%);
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
+}
+
+/* ÜST 3 KART */
+.products-page .p-card:nth-child(1) {
+    grid-column: 1 / span 4;
+}
+
+.products-page .p-card:nth-child(2) {
+    grid-column: 5 / span 4;
+}
+
+.products-page .p-card:nth-child(3) {
+    grid-column: 9 / span 4;
+}
+
+/* ALT 2 KART (ORTALI) */
+.products-page .p-card:nth-child(4) {
+    grid-column: 2 / span 5;
+}
+
+.products-page .p-card:nth-child(5) {
+    grid-column: 7 / span 5;
+}
+
+/* Kart görünümü */
+.products-page .p-card {
+    background: rgba(237, 229, 243, .95);
+    border-radius: 22px;
+    padding: 16px 16px 18px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+    text-align: center;
+}
+
+/* Başlık */
+.products-page .p-card__title {
+    margin: 2px 0 12px;
+    font-family: var(--font-nav);
+    color: var(--accent);
+    font-size: 20px;
+    font-weight: 600;
+    font-variation-settings: "opsz" 36;
+}
+
+/* Görsel alanı */
+.products-page .p-card__media {
+    display: flex;
+    justify-content: center;
+}
+
+.products-page .p-card__media img {
+    width: 210px;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, .65);
+    padding: 10px;
+    display: block;
+}
+
+/* Responsive: tek kolona düşsün */
+@media (max-width: 980px) {
+    .products-page .hero__inner--products {
+        height: auto;
+        min-height: 0;
+        max-height: none;
+        padding: 22px 16px;
+    }
+
+    .products-page .products__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .products-page .p-card:nth-child(1),
+    .products-page .p-card:nth-child(2),
+    .products-page .p-card:nth-child(3),
+    .products-page .p-card:nth-child(4),
+    .products-page .p-card:nth-child(5) {
+        grid-column: auto;
+    }
+}
+
+/* =========================================
+   ÜRÜNLERİMİZ — KUTULARI KÜÇÜLT + MOR ALANI ARTIR
+   (SADECE products-page)
+   ========================================= */
+
+/* hero iç boşlukları artır → mor alan nefes alsın */
+.products-page .hero__inner--products {
+    padding-top: 44px !important;
+    padding-bottom: 44px !important;
+}
+
+/* ürün kartlarının genel boyunu küçült */
+.products-page .p-card {
+    padding: 14px !important;
+    border-radius: 20px !important;
+}
+
+/* kart başlıkları biraz sıkı olsun */
+.products-page .p-card__title {
+    margin-bottom: 8px !important;
+    font-size: 19px !important;
+}
+
+/* görsel alanını küçült (kart yüksekliği düşer) */
+.products-page .p-card__media img {
+    width: 200px !important;
+    height: 120px !important;
+    padding: 8px !important;
+}
+
+/* grid satır aralığı biraz daha dengeli */
+.products-page .products__grid {
+    gap: 20px !important;
+}
+
+/* =========================================================
+   SÜKÛT — ÜRÜNLERİMİZ FINAL FIX (KESİLME + EŞİT KART)
+   style.css EN ALTINA
+   ========================================================= */
+
+/* 1) HERO/WRAPPER kesmesin */
+body.products-page .hero,
+body.products-page .hero__inner,
+body.products-page .hero__inner--products {
+    height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+}
+
+body.products-page .hero__inner--products {
+    padding: 28px 0 70px !important;
+    /* kartlara nefes */
+}
+
+/* 2) GRID: 6 kolon -> her kart 2 kolon kaplar
+      Üstte 3 kart (2+2+2), altta 2 kart ortalı (2-2 boşluk-2-2 boşluk) */
+body.products-page .products {
+    width: min(1120px, 92vw) !important;
+    margin: 0 auto !important;
+}
+
+body.products-page .products__grid {
+    display: grid !important;
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 28px !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+}
+
+/* 3) Kart: hepsi aynı boy */
+body.products-page .p-card {
+    grid-column: span 2 !important;
+    width: 100% !important;
+
+    height: 250px !important;
+    border-radius: 24px !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
+
+    padding: 18px 18px 16px !important;
+    box-sizing: border-box !important;
+}
+
+/* 4) Alt sıradaki 2 kartı ortala */
+body.products-page .products__grid>.p-card:nth-child(4) {
+    grid-column: 2 / span 2 !important;
+    /* ortanın solu */
+}
+
+body.products-page .products__grid>.p-card:nth-child(5) {
+    grid-column: 4 / span 2 !important;
+    /* ortanın sağı */
+}
+
+/* 5) Başlık: aynı yükseklik */
+body.products-page .p-card__title {
+    margin: 0 !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+
+    min-height: calc(1.2em * 2) !important;
+    /* 2 satır alan */
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+/* 6) Görsel alanı: beyaz kutu yok, her yerde aynı */
+body.products-page .p-card__media {
+    flex: 1 !important;
+    width: 100% !important;
+    height: 0 !important;
+    /* flex ile büyüsün */
+    min-height: 140px !important;
+    /* alt sınır */
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: transparent !important;
+    /* BEYAZI ÖLDÜR */
+    border: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+body.products-page .p-card__media img {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important;
+    display: block !important;
+
+    background: transparent !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    body.products-page .products__grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+
+    body.products-page .p-card {
+        grid-column: auto !important;
+        height: 250px !important;
+    }
+
+    body.products-page .products__grid>.p-card:nth-child(4),
+    body.products-page .products__grid>.p-card:nth-child(5) {
+        grid-column: auto !important;
+    }
+}
+
+@media (max-width: 560px) {
+    body.products-page .products__grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    body.products-page .p-card {
+        height: 270px !important;
+    }
+}
+
+/* ================================
+   ÜRÜNLERİMİZ — HOTFIX (KÜÇÜLT + YUKARI KAÇMA DÜZELT)
+   style.css EN ALTINA
+   ================================ */
+
+/* Üstten nefes */
+body.products-page .hero__inner--products {
+    padding-top: 34px !important;
+}
+
+/* Grid'i aşağı indir + stabilize et */
+body.products-page .products__grid {
+    margin-top: 20px !important;
+}
+
+/* Kartların yukarı kaçmasına sebep olan her şeyi resetle */
+body.products-page .p-card {
+    margin: 0 !important;
+    transform: none !important;
+    top: auto !important;
+    bottom: auto !important;
+    position: relative !important;
+
+    /* KARTI KÜÇÜLT */
+    height: 200px !important;
+    padding: 16px !important;
+    border-radius: 22px !important;
+}
+
+/* Başlık alanını biraz küçült */
+body.products-page .p-card__title {
+    font-size: 16px !important;
+    min-height: calc(1.2em * 2) !important;
+}
+
+/* Görsel alanını küçült */
+body.products-page .p-card__media {
+    min-height: 120px !important;
+}
+
+/* Görseller taşmadan daha küçük dursun */
+body.products-page .p-card__media img {
+    max-width: 92% !important;
+    max-height: 92% !important;
+    object-fit: contain !important;
+}
+
+body.products-page .hero {
+    padding-top: 25px !important;
+}
+
+/* =========================================================
+   ÜRÜNLERİMİZ — KÜÇÜLT (KART) + BÜYÜT (GÖRSEL) + SAYFA BOYU DENGE
+   style.css EN ALTINA
+   ========================================================= */
+
+body.products-page .hero__inner--products {
+    /* diğer sayfalara benzesin diye boşlukları azalt */
+    padding-top: 18px !important;
+    padding-bottom: 24px !important;
+}
+
+body.products-page .products {
+    width: min(980px, 90vw) !important;
+    /* genel alanı biraz daralt */
+}
+
+/* Kartları küçült */
+body.products-page .p-card {
+    height: 190px !important;
+    /* boy küçüldü */
+    padding: 14px !important;
+    /* iç boşluk azaldı */
+    border-radius: 20px !important;
+}
+
+/* Başlık alanı daha kompakt */
+body.products-page .p-card__title {
+    font-size: 15px !important;
+    height: 40px !important;
+    /* başlık alanı küçüldü */
+    margin-bottom: 6px !important;
+}
+
+/* Görsel alanı: daha az boşluk, daha çok görsel */
+body.products-page .p-card__media {
+    min-height: 120px !important;
+    padding: 0 !important;
+}
+
+/* Görselleri büyüt: max %92 değil, neredeyse ful */
+body.products-page .p-card__media img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+}
+
+/* Ürünlerimiz sayfasının “uzun” hissettirmesini bitir:
+   hero/section ekstra min-height/height varsa iptal */
+body.products-page .hero,
+body.products-page .hero__inner,
+body.products-page .products {
+    min-height: 0 !important;
+    height: auto !important;
+}
+
+/* Eğer altta gereksiz büyük boşluk kalıyorsa bu da kapatır */
+body.products-page .products__grid {
+    margin-bottom: 0 !important;
+}
+
+/* =========================================================
+   SÜKÛT — ÜRÜNLERİMİZ / GÖRSEL İNCE AYAR (TEK TEK)
+   style.css EN ALTINA yapıştır
+   ========================================================= */
+
+/* Görsel alanı taşmaya izin versin (gozbandi taşabilir dedin) */
+body.products-page .p-card__media {
+    overflow: visible !important;
+}
+
+/* Tüm ürün görselleri için temel: ortada dursun */
+body.products-page .p-card__media img {
+    display: block !important;
+    transform: translate(0, 0) scale(1) !important;
+    /* default reset */
+    transform-origin: center center !important;
+}
+
+/* 1) lavantayagi.png — yukarı + büyüt */
+body.products-page .p-card__media img[src$="lavantayagi.png"] {
+    transform: translateY(-15px) scale(1.50) !important;
+}
+
+/* 2) uykukiti.png — yukarı + büyüt (lavanta ile aynı hizaya yakın) */
+body.products-page .p-card__media img[src$="uykukiti.png"] {
+    transform: translateY(-15px) scale(1.20) !important;
+}
+
+/* 3) gozbandi.png — kuzeydoğu yönünde taşı + daha çok büyüt
+      (PNG içi sol-alt yapışıklığı telafi) */
+body.products-page .p-card__media img[src$="gozbandi.png"] {
+    transform: translate(-57px, -4px) scale(2.45) !important;
+    transform-origin: left bottom !important;
+    /* yapışık hissini telafi */
+}
+
+/* 4) yastikkilifi.png — biraz yukarı + orta büyüklük */
+body.products-page .p-card__media img[src$="yastikkilifi.png"] {
+    transform: translateY(-18px) scale(1.18) !important;
+}
+
+/* 5) duskapani.png — biraz yukarı + yastıkla aynı hizaya yakın */
+body.products-page .p-card__media img[src$="duskapani.png"] {
+    transform: translateY(-18px) scale(1.18) !important;
+}
+
+.products-page .hero::after {
+    bottom: 0 !important;
+    /* dikey şeritler en alta kadar iner */
+}
+
+/* FULL SCREEN FIT — SÜKÛT (COVER) */
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+}
+
+.fit-stage {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+}
+
+.fit-design {
+    width: 1200px;
+    height: 675px;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-origin: center;
+
+    transform: translate(-50%, -50%) scale(max(100vw/1200, 100vh/675));
+}
+
+/* ================================
+   FULL WIDTH / FULL HEIGHT WEB FIX
+   ================================ */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+/* Sayfa artık ekran genişliğini kaplar */
+.page {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* İç çerçeve de ekran yüksekliğine yayılır */
+.frame {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+/* Ana hero bölüm ekran kadar olsun */
+.hero {
+    min-height: calc(100vh - 120px);
+    /* navbar + footer payı */
+}
+
+/* Gri boşlukların kaynağını öldür */
+body {
+    background: #0f0f14;
+    /* senin koyu zemin */
+}
+
+/* =========================================================
+   SÜKÛT — TAM EKRANA OTURTMA + FOOTER KIRPILMA FIX
+   (KUTU GİTSİN, 4 KENAR TAM DOLSUN, ALT BAR TAM GÖRÜNSÜN)
+   ========================================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow: hidden;
+    /* dış taşmayı kapat */
+}
+
+/* Sayfa ve ana çerçeve tam ekran */
+.page {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0 !important;
+    margin: 0 !important;
+
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+}
+
+.frame {
+    width: 100vw !important;
+    height: 100vh !important;
+    min-height: 100vh !important;
+
+    margin: 0 !important;
+    max-width: none !important;
+
+    border-radius: 0 !important;
+    /* üst/yan boşluk hissi yapan “kart” etkisi */
+    box-shadow: none !important;
+
+    overflow: hidden !important;
+    /* iç elemanlar taşmasın */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Üst bar sabit yükseklik, ortadaki alan esnesin, alt bar her zaman tam görünsün */
+.topbar {
+    flex: 0 0 auto;
+}
+
+.hero {
+    flex: 1 1 auto;
+    min-height: 0;
+    /* footer’ın kırpılmasını engeller */
+}
+
+.bottombar {
+    flex: 0 0 auto;
+    margin-top: auto;
+    /* en alta yapıştır */
+}
+
+/* Alt bardaki ikon/yazı kesilmesin */
+.bottombar {
+    padding-bottom: 8px !important;
+}
+
+.social {
+    margin-left: 8px !important;
+}
+
+.copy {
+    padding-right: 10px !important;
+}
+
+/* ===== FINAL POLISH — ALT BAR VE ORTA ALAN ===== */
+
+/* ALT BAR: ikon + yazı aşağı */
+.bottombar {
+    padding-bottom: 16px !important;
+}
+
+.bottombar .social,
+.bottombar .copy {
+    transform: translateY(8px) !important;
+}
+
+/* ORTA ALAN: içerikleri aşağı al + büyüt */
+.frame>main {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex: 1 1 auto !important;
+}
+
+.frame>main>* {
+    transform: translateY(16px) scale(1.06) !important;
+    transform-origin: center !important;
+}
+
+/* ===== FOOTER CREDIT (ORTA YAZI) ===== */
+.credit {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    /* alt çizgiyle uyumlu */
+    transform: translateX(-50%);
+
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+
+    color: rgba(80, 0, 130, 0.75);
+    /* morla uyumlu, bağırmaz */
+    white-space: nowrap;
+    pointer-events: none;
+    /* tıklanmasın */
+}
+
+/* ============================= */
+/* ANA SAYFA – EKSTRA MARKA ALANI */
+/* ============================= */
+
+.hero-slogan {
+    margin-top: 24px;
+    font-size: 18px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.75);
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.hero-values {
+    margin-top: 28px;
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.value-item {
+    background: rgba(255, 255, 255, 0.12);
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-size: 14px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(6px);
+    transition: transform .3s ease, background .3s ease;
+}
+
+.value-item:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ANA SAYFA – MARKA ALANINI YUKARI TAŞIMA */
+.hero-brand {
+    transform: translateY(-80px);
+}
+
+.search {
+    transform: translateY(-100px);
+}
+
+/* ============================= */
+/* ANA SAYFA – ARAMA BAR DARALMA FIX */
+/* ============================= */
+
+/* Hero iç kapsayıcı genişliği daralmayı bırak: */
+.hero__inner {
+    width: 100%;
+    max-width: 100%;
+    align-items: center;
+    /* merkezde dursun */
+}
+
+/* Arama formu her zaman geniş kalsın: */
+.search {
+    width: min(800px, 90vw);
+    max-width: 800px;
+}
+
+/* Input da formu tam doldursun: */
+.search__input {
+    width: 100%;
+}
+
+/* (İstersen) slogan + değerleri minimal tutmaya devam */
+.hero-slogan {
+    margin-top: 44px;
+    font-size: 15px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.55);
+    letter-spacing: 0.4px;
+}
+
+.hero-values {
+    margin-top: 19px;
+    gap: 14px;
+}
+
+.value-item {
+    font-size: 13px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.75);
+    border-radius: 999px;
+}
+
+/* ============================= */
+/* ÜRÜNLERİMİZ – KART & GÖRSEL BÜYÜTME (OVERRIDE) */
+/* ============================= */
+
+body.products-page .hero__inner--products {
+    padding-top: 60px;
+    /* sayfayı biraz yukarı alır, boşluk azalır */
+}
+
+/* Grid’i daha dolu yap */
+body.products-page .products__grid {
+    gap: 34px 34px;
+    /* kartlar arası boşluk */
+    max-width: 1080px;
+    /* geniş ekranda daha dolu dursun */
+    margin: 0 auto;
+}
+
+/* Kartların kendisi büyüsün */
+body.products-page .p-card {
+    width: 360px;
+    /* kart genişliği */
+    min-height: 230px;
+    /* kart boyu */
+    padding: 18px 18px 16px;
+    border-radius: 22px;
+}
+
+/* Başlık çok yer yemesin ama premium kalsın */
+body.products-page .p-card__title {
+    font-size: 15px;
+    margin-bottom: 12px;
+}
+
+/* Görsel alanı büyüsün */
+body.products-page .p-card__media {
+    height: 145px;
+    /* görsel kutusu büyüdü */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Görsel gerçekten büyük görünsün */
+body.products-page .p-card__media img {
+    width: 80%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.12);
+}
+
+/* Hover çok hafif premium */
+body.products-page .p-card:hover {
+    transform: translateY(-2px);
+}
+
+/* ============================= */
+/* ÜRÜNLERİMİZ – SON BÜYÜTME & HİZALAMA */
+/* ============================= */
+
+/* Tüm ürün alanını biraz yukarı al */
+body.products-page .hero__inner--products {
+    padding-top: 30px;
+}
+
+/* Grid daha dolu */
+body.products-page .products__grid {
+    gap: 38px 38px;
+    max-width: 1180px;
+}
+
+/* Kartlar biraz daha büyüsün */
+body.products-page .p-card {
+    width: 390px;
+    min-height: 260px;
+    padding: 20px;
+    border-radius: 24px;
+}
+
+/* Başlık dengesi */
+body.products-page .p-card__title {
+    font-size: 15.5px;
+    margin-bottom: 14px;
+    text-align: center;
+}
+
+/* Görsel alanı büyüt */
+body.products-page .p-card__media {
+    height: 165px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* TÜM görseller tam ortada */
+body.products-page .p-card__media img {
+    max-width: 85%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+    transform: scale(1.12);
+}
+
+/* Göz bandı özel hizalama (solda kayma fix) */
+body.products-page img[src*="gozbandi"] {
+    transform: scale(1.15);
+}
+
+/* Hover hâlâ premium ama sakin */
+body.products-page .p-card:hover {
+    transform: translateY(-3px);
+}
+
+/* GÖZ BANDI – KESİN HİZALAMA (images/gozbandi.png) */
+body.products-page .p-card__media img[src="images/gozbandi.png"],
+body.products-page .p-card__media img[src="./images/gozbandi.png"] {
+    transform: translate(16px, -6px) scale(2.20) !important;
+    object-position: 60% 35% !important;
+    /* sağ-üst hissi */
+}

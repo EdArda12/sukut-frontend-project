@@ -1,0 +1,655 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+/* =========================================================
+   SÜKÛT — CLEAN STYLE.CSS (CONSOLIDATED)
+   - Keeps the *working* end-state from your 1625-line file
+   - Removes duplicate/overridden blocks (topbar/social/products repeats)
+   ========================================================= */
+
+:root {
+  --panel: #ede5f3;
+  --accent: #4e217b;
+  --hero-left: #030012;
+  --hero-mid: #27004e;
+  --hero-right: #030f2e;
+  --text-dark: #2b1445;
+  --radius-xl: 18px;
+  --radius-pill: 999px;
+  --shadow: 0 10px 35px rgba(0, 0, 0, .18);
+  --font-nav: "Source Serif 4", serif;
+  --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --topbar-h: 74px;
+  --bottombar-h: 34px;
+  --brand-purple: #32005b;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: #616161;
+  color: var(--text-dark);
+}
+
+.page {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 42px;
+}
+
+.frame {
+  width: min(1240px, 100%);
+  background: var(--panel);
+  border: 1px solid #cfcbd8;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+/* =========================================================
+   TOPBAR (final, stable)
+   ========================================================= */
+.topbar {
+  height: var(--topbar-h);
+  padding: 12px 18px;
+  background: var(--panel);
+  border-bottom: 2px solid #141414;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  position: relative;
+  z-index: 10;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  column-gap: 18px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  flex: 0 0 auto;
+}
+
+.brand-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  display: block;
+}
+
+.brand-text {
+  font-family: "Elephant", "Georgia", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--brand-purple);
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: .2px;
+  margin-left: -4px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.nav__link {
+  font-family: var(--font-nav);
+  font-size: 20px;
+  letter-spacing: .1px;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 14px;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+  font-variation-settings: "opsz" 40;
+  white-space: nowrap;
+}
+
+.nav__link:hover {
+  background: rgba(78, 33, 123, .10);
+  transform: translateY(-1px);
+}
+
+.nav__link.is-active {
+  color: #fff;
+  background: var(--accent);
+}
+
+.btn {
+  font-family: var(--font-nav);
+  font-size: 18px;
+  text-decoration: none;
+  color: #fff;
+  background: var(--accent);
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: #5a2a8f
+}
+
+/* =========================================================
+   HERO (purple area + white frame lines)
+   ========================================================= */
+.hero {
+  position: relative;
+  padding: 0;
+  background:
+    radial-gradient(900px 420px at 50% 60%, rgba(90, 0, 170, .55), rgba(0, 0, 0, 0) 60%),
+    linear-gradient(90deg, var(--hero-left) 0%, var(--hero-mid) 50%, var(--hero-right) 100%);
+  border-left: 2px solid #151515;
+  border-right: 2px solid #151515;
+
+  margin-top: -20px;
+  margin-left: -2px;
+  margin-right: -2px;
+  width: calc(100% + 4px);
+
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+  overflow: hidden;
+  background-clip: border-box;
+}
+
+.hero__inner {
+  height: 500px;
+  min-height: 500px;
+  max-height: 500px;
+  position: relative;
+  padding: 26px 32px 36px;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* White frame lines: left/right + bottom (no top) */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 18px;
+  bottom: 22px;
+  left: 22px;
+  right: 22px;
+  border-left: 2px solid rgba(255, 255, 255, .9);
+  border-right: 2px solid rgba(255, 255, 255, .9);
+  border-bottom: 2px solid rgba(255, 255, 255, .9);
+  border-top: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Home hero brand */
+.hero-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 26px;
+  margin-bottom: 22px;
+}
+
+.hero-title {
+  font-family: "Elephant", "Georgia", serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #fff;
+  font-size: 136px;
+  letter-spacing: 1px;
+  margin: 0;
+  line-height: 1;
+}
+
+.hero-mark {
+  width: 170px;
+  height: auto;
+  display: block;
+  margin-left: -4px;
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, .35));
+}
+
+/* Search */
+.search {
+  width: min(860px, 92%);
+  margin: 0 auto;
+  position: relative;
+  height: 56px
+}
+
+.search__icon {
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  opacity: .95
+}
+
+.search__input {
+  width: 100%;
+  height: 100%;
+  padding: 0 20px 0 58px;
+  border-radius: var(--radius-pill);
+  border: 2px solid rgba(255, 255, 255, .16);
+  outline: none;
+  background: rgba(107, 98, 129, .82);
+  color: #fff;
+  font-size: 20px;
+  font-family: var(--font-nav);
+  letter-spacing: .2px;
+  font-variation-settings: "opsz" 36;
+}
+
+.search__input::placeholder {
+  color: rgba(255, 255, 255, .92)
+}
+
+/* =========================================================
+   BOTTOM BAR + SOCIAL (final compact, stable)
+   ========================================================= */
+.bottombar {
+  height: var(--bottombar-h);
+  background: var(--panel);
+  border-top: 2px solid #151515;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+}
+
+.bottombar .social {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bottombar .social__btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.bottombar .social__btn img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Instagram & X canvas tiny -> optically enlarge */
+.bottombar .social__btn:nth-child(3) img,
+.bottombar .social__btn:nth-child(4) img {
+  transform: scale(1.45);
+  transform-origin: center;
+}
+
+.copy {
+  font-size: 12px;
+  color: var(--accent);
+  font-family: var(--font-nav);
+  font-variation-settings: "opsz" 24;
+}
+
+/* =========================================================
+   ABOUT (hakkimizda.html) — uses .hero--about on body/hero
+   ========================================================= */
+.about-card {
+  width: min(1080px, 92%);
+  margin: 55px auto 0;
+  background: #dcdbe2;
+  border-radius: 28px;
+  padding: 46px 54px;
+}
+
+.about-title {
+  font-family: var(--font-nav);
+  font-size: 54px;
+  color: #2b1445;
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
+.about-subtitle {
+  font-family: var(--font-nav);
+  font-size: 28px;
+  color: #2b1445;
+  margin: 0 0 20px;
+  font-weight: 700;
+}
+
+.about-card p {
+  font-family: var(--font-nav);
+  font-size: 18px;
+  line-height: 1.55;
+  color: #2b1445;
+  margin: 0 0 14px;
+}
+
+/* About page layout: center and remove bottom white line */
+.hero--about .hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 18px !important;
+  padding-bottom: 18px !important;
+}
+
+.hero--about .about-card {
+  margin-top: 0 !important;
+  transform: translateY(-5px) !important;
+  padding: 34px 42px !important;
+  max-width: 86% !important;
+}
+
+.hero--about .about-title {
+  font-size: 48px !important
+}
+
+.hero--about .about-subtitle {
+  font-size: 22px !important
+}
+
+.hero--about .about-card p {
+  font-size: 16.5px !important;
+  line-height: 1.55 !important
+}
+
+.hero--about::after {
+  border-bottom: 0 !important;
+  top: 1px !important;
+  bottom: 0 !important
+}
+
+/* =========================================================
+   CONTENT (icerigimiz.html) — uses .hero--content
+   ========================================================= */
+.hero.hero--content::after {
+  border-bottom: 0 !important;
+  bottom: 0 !important
+}
+
+.hero--content .content-cards {
+  width: min(1120px, 92%);
+  margin: 88px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 34px;
+}
+
+.hero--content .content-card {
+  background: rgba(237, 229, 243, .95);
+  border-radius: 28px;
+  padding: 34px 30px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .18);
+}
+
+.hero--content .content-card__title {
+  font-family: var(--font-nav);
+  color: var(--accent);
+  font-size: 30px;
+  font-variation-settings: "opsz" 42;
+  margin: 0 0 16px;
+  text-align: center;
+}
+
+.hero--content .content-card__text {
+  font-family: var(--font-nav);
+  color: #2b1445;
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* =========================================================
+   PRODUCTS (urunlerimiz.html) — body has class="products-page"
+   ========================================================= */
+
+/* Products page: keep vertical lines to the very bottom */
+.products-page .hero::after {
+  border-bottom: 0 !important;
+  /* products page: no bottom horizontal line */
+  bottom: 0 !important;
+  /* but vertical lines go all the way down */
+}
+
+/* Let products layout size itself (no clipping), but keep the overall feel compact */
+body.products-page .hero,
+body.products-page .hero__inner,
+body.products-page .hero__inner--products {
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible !important;
+}
+
+body.products-page .hero__inner--products {
+  padding: 18px 0 24px !important;
+}
+
+body.products-page .products {
+  width: min(980px, 90vw) !important;
+  margin: 0 auto !important;
+}
+
+/* Grid: 6 columns, 3 cards top, 2 cards bottom centered */
+body.products-page .products__grid {
+  display: grid !important;
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+  gap: 28px !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  margin-top: 20px !important;
+}
+
+/* All cards equal size */
+body.products-page .p-card {
+  grid-column: span 2 !important;
+  width: 100% !important;
+
+  height: 190px !important;
+  border-radius: 24px !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+
+  padding: 14px !important;
+  margin: 0 !important;
+  position: relative !important;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, .18);
+  background: rgba(237, 229, 243, .95);
+  text-align: center;
+}
+
+/* Bottom row centered */
+body.products-page .products__grid>.p-card:nth-child(4) {
+  grid-column: 2 / span 2 !important
+}
+
+body.products-page .products__grid>.p-card:nth-child(5) {
+  grid-column: 4 / span 2 !important
+}
+
+/* Title: fixed height (2 lines) */
+body.products-page .p-card__title {
+  margin: 0 !important;
+  font-family: var(--font-nav);
+  color: var(--accent);
+  font-weight: 600;
+  font-variation-settings: "opsz" 36;
+  font-size: 15px !important;
+  line-height: 1.2 !important;
+
+  min-height: calc(1.2em * 2) !important;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Media area */
+body.products-page .p-card__media {
+  flex: 1 !important;
+  width: 100% !important;
+  min-height: 120px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: visible !important;
+  /* allow gozbandi to overflow if needed */
+}
+
+body.products-page .p-card__media img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 16px;
+  /* keeps your rounded look on some pngs */
+}
+
+/* Per-image fine-tuning (your final working offsets) */
+body.products-page .p-card__media img[src$="lavantayagi.png"] {
+  transform: translateY(-15px) scale(1.50) !important;
+  transform-origin: center
+}
+
+body.products-page .p-card__media img[src$="uykukiti.png"] {
+  transform: translateY(-15px) scale(1.20) !important;
+  transform-origin: center
+}
+
+body.products-page .p-card__media img[src$="gozbandi.png"] {
+  transform: translate(-57px, -4px) scale(2.45) !important;
+  transform-origin: left bottom
+}
+
+body.products-page .p-card__media img[src$="yastikkilifi.png"] {
+  transform: translateY(-18px) scale(1.18) !important;
+  transform-origin: center
+}
+
+body.products-page .p-card__media img[src$="duskapani.png"] {
+  transform: translateY(-18px) scale(1.18) !important;
+  transform-origin: center
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width:980px) {
+  .nav {
+    gap: 8px
+  }
+
+  .nav__link {
+    font-size: 16px;
+    padding: 8px 10px
+  }
+
+  .brand-logo {
+    width: 62px;
+    height: 62px
+  }
+
+  .brand-text {
+    font-size: 36px
+  }
+
+  .hero-title {
+    font-size: 110px
+  }
+
+  .hero-mark {
+    width: 150px
+  }
+
+  /* content cards stack */
+  .hero--content .content-cards {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 56px
+  }
+
+  /* products -> 2 columns */
+  body.products-page .products__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important
+  }
+
+  body.products-page .p-card {
+    grid-column: auto !important
+  }
+
+  body.products-page .products__grid>.p-card:nth-child(4),
+  body.products-page .products__grid>.p-card:nth-child(5) {
+    grid-column: auto !important
+  }
+}
+
+@media (max-width:760px) {
+  .topbar {
+    height: auto;
+    row-gap: 10px;
+    padding: 12px 14px;
+    grid-template-columns: 1fr;
+    justify-items: start;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap
+  }
+
+  .page {
+    padding: 18px
+  }
+
+  .hero__inner {
+    height: 420px;
+    min-height: 420px
+  }
+
+  .hero-title {
+    font-size: 86px
+  }
+
+  .hero-mark {
+    width: 120px
+  }
+}
+
+@media (max-width:560px) {
+  body.products-page .products__grid {
+    grid-template-columns: 1fr !important
+  }
+
+  body.products-page .p-card {
+    height: 210px !important
+  }
+}
